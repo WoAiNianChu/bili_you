@@ -5,7 +5,9 @@ name: builder
 # git push --tags 执行时候进行编译
 on:
   push:
-    tags:
+    branches: 
+      - master
+  # 手动触发
       - v*
 
 
@@ -70,3 +72,11 @@ jobs:
         with:
             artifacts: "build/app/outputs/flutter-apk/app-*.apk"
             allowUpdates: true
+      
+  #发布构建的app
+      - name: Upload built apk
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+            name: Release_${{ env.VERSION }}.apk
+            path: ${{ github.workspace }}/app/build/outputs/apk/release/${{ env.APK_FILE }}
