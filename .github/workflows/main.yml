@@ -66,11 +66,7 @@ jobs:
       # - run: appimage-builder --recipe AppImageBuilder.yml
           
       # 发布安装包
-      - name: Release Packages
-        uses: ncipollo/release-action@v1
-        with:
-            artifacts: "build/app/outputs/flutter-apk/app-*.apk"
-            allowUpdates: true
+
       
   #发布构建的app
       - name: Upload built apk
