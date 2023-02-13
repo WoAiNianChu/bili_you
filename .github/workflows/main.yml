@@ -74,4 +74,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: Release_${{ env.VERSION }}.apk
-            path: /apk/*
+            path: ${{ github.workspace }}/build/app/outputs/flutter-apk/${{ env.APK_FILE }}
