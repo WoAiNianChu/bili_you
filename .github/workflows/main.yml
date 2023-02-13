@@ -74,4 +74,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: Release_${{ env.VERSION }}.apk
-            path: ${{ github.workspace }}/app/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+            path: ${{ github.workspace }}/apk/*
